@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5yn1aulrgq0i"]
+
+[ext_resource type="Script" path="res://addons/YofiComponents/components/hurtbox_2d/hurtbox_2d.gd" id="1_3g2i8"]
+
+[node name="Hurtbox2D" type="Area2D"]
+script = ExtResource("1_3g2i8")

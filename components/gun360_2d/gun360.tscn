@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=3 uid="uid://tje7cdvqan0r"]
+
+[ext_resource type="Script" path="res://addons/YofiComponents/components/gun360_2d/gun_360.gd" id="1_j8dwl"]
+[ext_resource type="Texture2D" uid="uid://ce657fj17vdf1" path="res://assets/sprites/gun/Sprite-0002.png" id="2_n1arl"]
+[ext_resource type="Texture2D" uid="uid://dna88hfxa5uv" path="res://assets/sprites/gun/Muzzle Flash 7.png" id="3_kg1lo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0myq"]
+size = Vector2(107, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4rt5"]
+atlas = ExtResource("3_kg1lo")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lblh"]
+atlas = ExtResource("3_kg1lo")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2apu"]
+atlas = ExtResource("3_kg1lo")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3pje"]
+atlas = ExtResource("3_kg1lo")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uv860"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4rt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lblh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2apu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2apu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3pje")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="Gun360" type="Node2D"]
+script = ExtResource("1_j8dwl")
+radius = null
+active = null
+dmg = null
+knockback_force = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("2_n1arl")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(53.5, -1)
+shape = SubResource("RectangleShape2D_i0myq")
+
+[node name="FirerateTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="HitboxDisableTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_uv860")
+frame = 5
+frame_progress = 1.0
+
+[connection signal="timeout" from="HitboxDisableTimer" to="." method="_on_hitbox_disable_timer_timeout"]

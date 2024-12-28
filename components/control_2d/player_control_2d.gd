@@ -47,6 +47,8 @@ func get_desired_direction() -> Vector2:
 	
 
 func _physics_process(delta: float) -> void:
+	if not movement_control:
+		return
 	if Input.is_action_just_pressed("stop"):
 		movement_control.stop()
 		return
