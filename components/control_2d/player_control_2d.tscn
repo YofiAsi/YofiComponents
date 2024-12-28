@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b00whccha0026"]
+
+[ext_resource type="Script" path="res://addons/YofiComponents/components/control_2d/player_control_2d.gd" id="1_v78vb"]
+
+[node name="PlayerControl2D" type="Node2D"]
+script = ExtResource("1_v78vb")

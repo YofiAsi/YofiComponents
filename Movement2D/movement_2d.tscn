@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvn1huupdrhl8"]
-
-[ext_resource type="Script" path="res://addons/yoficomponents/Movement2D/movement_2d.gd" id="1_uxbc4"]
-
-[node name="Movement2d" type="Node2D"]
-script = ExtResource("1_uxbc4")
-BASE_ACCELERATION = 698.5
