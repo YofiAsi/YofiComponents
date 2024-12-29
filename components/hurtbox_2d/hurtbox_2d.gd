@@ -23,10 +23,7 @@ func death() -> void:
 	death_signal.emit()
 
 func hurt(dmg: int, knockback_force: float):
-	print_debug("hurt! hp:", curr_hp)
 	curr_hp -= dmg
-	print_debug("dmg: ", dmg)
-	print_debug("new hp:", curr_hp)
 	
 	if self.movement_2d:
 		movement_2d.knock_back(knockback_force)
